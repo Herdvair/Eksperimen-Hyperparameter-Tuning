@@ -91,15 +91,15 @@ Kesimpulan:
    - Diantara kedua model ini yaitu XG-Boost dan LightGBM. Semua bagus untuk pemodelan churn, namun dengan strategi bisnis berbeda. Jika strateginya untuk deteksi dini agar pelanggan churn tidak terlewat, maka model XG-Boost cocok karena recall nya lebih tinggi yaitu (0.82) dibandingkan Light-GBM (0.79). Sebaliknya, jika strateginya mengarah keseimbangan antara precision dan recall untuk mengurangi prediksi churn yang berlebihan maka model LightGBM cocok karena precision nya (0.53) sedangkan XG-Boost (0.47).
 
 **Berdasarkan hasil eksperimen dengan XGBoost:**
-        - Model based awal menunjukkan performa cukup baik dengan F1-score test sebesar (0.54), precision (0.58) dan AUC (0.82), namun recall masih rendah (0.50) sehingga model kurang optimal dalam menangkap pelanggan yang benar-benar churn.
-        - Setelah dilakukan hyperparameter tuning tanpa SMOTEENN, performa test sedikit membaik pada F1-score (0.53), dan AUC (0.83), meskipun recall masih rendah (0.48) dan precision (0.49), menandakan bahwa model ini harus dioptimalisasi.
-        - Penggunaan SMOTEENN dengan hyperparameter tuning memberikan performa lebih seimbang, dengan peningkatan signifikan recall (0.82) dan F1-score (0.59), meskipun precision sedikit menurun (0.47).
-        - Artinya, model lebih sensitif dalam mendeteksi churn sehingga sebagian pelanggan loyal mungkin salah teridentifikasi sebagai berisiko churn. Namun, dalam konteks strategi bisnis, pendekatan ini lebih menguntungkan karena memungkinkan perusahaan melakukan deteksi dini agar tidak kehilangan pelanggan.
+   - Model based awal menunjukkan performa cukup baik dengan F1-score test sebesar (0.54), precision (0.58) dan AUC (0.82), namun recall masih rendah (0.50) sehingga model kurang optimal dalam menangkap pelanggan yang benar-benar churn.
+   - Setelah dilakukan hyperparameter tuning tanpa SMOTEENN, performa test sedikit membaik pada F1-score (0.53), dan AUC (0.83), meskipun recall masih rendah (0.48) dan precision (0.49), menandakan bahwa model ini harus dioptimalisasi.
+   - Penggunaan SMOTEENN dengan hyperparameter tuning memberikan performa lebih seimbang, dengan peningkatan signifikan recall (0.82) dan F1-score (0.59), meskipun precision sedikit menurun (0.47).
+   - Artinya, model lebih sensitif dalam mendeteksi churn sehingga sebagian pelanggan loyal mungkin salah teridentifikasi sebagai berisiko churn. Namun, dalam konteks strategi bisnis, pendekatan ini lebih menguntungkan karena memungkinkan perusahaan melakukan deteksi dini agar tidak kehilangan pelanggan.
 
 **Berdasarkan hasil eksperimen dengan LightGBM:**
-         - Model based awal menunjukkan performa cukup baik dengan F1-score test sebesar (0.54), precision (0.59) dan (AUC 0.82), namun recall masih rendah (0.50) sehingga model kurang optimal dalam menangkap pelanggan yang benar-benar churn.
-         - Setelah dilakukan hyperparameter tuning tanpa SMOTEENN, performa test sedikit membaik pada F1-score (0.55), precision (0.61) dan AUC (0.83), meskipun recall masih rendah (0.50), menandakan bahwa diperlukan optimalisasi.
-         - Ketika SMOTEENN ditambahkan, recall meningkat signifikan menjadi (0.79) dengan F1-score (0.63), meskipun precision sedikit menurun (0.53), sehingga model menjadi cukup sensitif dalam mendeteksi churn. Secara keseluruhan, LightGBM dengan SMOTEENN memberikan hasil yang seimbang untuk kasus churn tergantung pada tujuan bisnis.
+   - Model based awal menunjukkan performa cukup baik dengan F1-score test sebesar (0.54), precision (0.59) dan (AUC 0.82), namun recall masih rendah (0.50) sehingga model kurang optimal dalam menangkap pelanggan yang benar-benar churn.
+   - Setelah dilakukan hyperparameter tuning tanpa SMOTEENN, performa test sedikit membaik pada F1-score (0.55), precision (0.61) dan AUC (0.83), meskipun recall masih rendah (0.50), menandakan bahwa diperlukan optimalisasi.
+   - Ketika SMOTEENN ditambahkan, recall meningkat signifikan menjadi (0.79) dengan F1-score (0.63), meskipun precision sedikit menurun (0.53), sehingga model menjadi cukup sensitif dalam mendeteksi churn. Secara keseluruhan, LightGBM dengan SMOTEENN memberikan hasil yang seimbang untuk kasus churn tergantung pada tujuan bisnis.
 
 # 🎯 Potensi Dampak Bisnis
 1. Model XG-Boost
