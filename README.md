@@ -69,3 +69,20 @@ Saya melakukan eksperimen untuk memprediksi Monthly Charges karena target Churn 
 Kesimpulan : 
 
 Model XG-Boost dan LightGBM menunjukkan performa cukup stabil, dapat dilakukan analisis lebih lanjut
+
+3. Pada eksperimen ini, dilakukan analisis lanjutan pada model XG-Boost dan LightGBM dalam prediksi churn. Hal ini untuk perbandingan model yang terbaik dalam memprediksi churn berdasarkan strategi bisnis yang dituju. Berikut hasilnya:
+| Model | Tahap | Dataset | Precision | Recall | F1-Score | ROC AUC |
+| :--- | :--- | :--- | :---: | :---: | :---: | :---: |
+| **XG-Boost** | Based Model | Train | 0.887377 | 0.781625 | 0.831150 | 0.974628 |
+|  |  | Test | 0.586538 | 0.502747 | 0.541420 | 0.821605 |
+|  | Hyperparameter Tuning | Train | 0.718724 | 0.569907 | 0.635722 | 0.883236 |
+|  |  | Test | 0.601375 | 0.480769 | 0.534351 | 0.831445 |
+|  | Hyperparameter Tuning + SMOTEENN | Train | 0.491282 | 0.844208 | 0.621112 | 0.836510 |
+|  |  | Test | 0.470126 | 0.821429 | 0.598000 | 0.823760 |
+| **LightGBM** | Based Model | Train | 0.807630 | 0.662450 | 0.727871 | 0.942349 |
+|  |  | Test | 0.598684 | 0.500000 | 0.544910 | 0.826449 |
+|  | Hyperparameter Tuning | Train | 0.710833 | 0.567909 | 0.631384 | 0.874526 |
+|  |  | Test | 0.611296 | 0.505495 | 0.553383 | 0.835289 |
+|  | Hyperparameter Tuning + SMOTEENN | Train | 0.710833 | 0.567909 | 0.631384 | 0.874526 |
+|  |  | Test | 0.611296 | 0.505495 | 0.553383 | 0.835289 |
+
