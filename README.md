@@ -87,3 +87,28 @@ Model XG-Boost dan LightGBM menunjukkan performa cukup stabil, dapat dilakukan a
 |  | Hyperparameter Tuning + SMOTEENN | Train | 0.710833 | 0.567909 | 0.631384 | 0.874526 |
 |  |  | Test | 0.611296 | 0.505495 | 0.553383 | 0.835289 |
 
+Kesimpulan: 
+   - Diantara kedua model ini yaitu XG-Boost dan LightGBM. Semua bagus untuk pemodelan churn, namun dengan strategi bisnis berbeda. Jika strateginya untuk deteksi dini agar pelanggan churn tidak terlewat, maka model XG-Boost cocok karena recall nya lebih tinggi yaitu (0.82) dibandingkan Light-GBM (0.79). Sebaliknya, jika strateginya mengarah keseimbangan antara precision dan recall untuk mengurangi prediksi churn yang berlebihan maka model LightGBM cocok karena precision nya (0.53) sedangkan XG-Boost (0.47).
+   - Berdasarkan hasil eksperimen dengan XGBoost:
+        - Model based awal menunjukkan performa cukup baik dengan F1-score test sebesar (0.54), precision (0.58) dan AUC (0.82), namun recall masih rendah (0.50) sehingga model kurang optimal dalam menangkap pelanggan yang benar-benar churn.
+        - Setelah dilakukan hyperparameter tuning tanpa SMOTEENN, performa test sedikit membaik pada F1-score (0.53), dan AUC (0.83), meskipun recall masih rendah (0.48) dan precision (0.49), menandakan bahwa model ini harus dioptimalisasi.
+        - Penggunaan SMOTEENN dengan hyperparameter tuning memberikan performa lebih seimbang, dengan peningkatan signifikan recall (0.82) dan F1-score (0.59), meskipun precision sedikit menurun (0.47).
+        - Artinya, model lebih sensitif dalam mendeteksi churn sehingga sebagian pelanggan loyal mungkin salah teridentifikasi sebagai berisiko churn. Namun, dalam konteks strategi bisnis, pendekatan ini lebih menguntungkan karena memungkinkan perusahaan melakukan deteksi dini agar tidak kehilangan pelanggan.
+    - Berdasarkan hasil eksperimen dengan LightGBM:
+         - Model based awal menunjukkan performa cukup baik dengan F1-score test sebesar (0.54), precision (0.59) dan (AUC 0.82), namun recall masih rendah (0.50) sehingga model kurang optimal dalam menangkap pelanggan yang benar-benar churn.
+         - Setelah dilakukan hyperparameter tuning tanpa SMOTEENN, performa test sedikit membaik pada F1-score (0.55), precision (0.61) dan AUC (0.83), meskipun recall masih rendah (0.50), menandakan bahwa diperlukan optimalisasi.
+         - Ketika SMOTEENN ditambahkan, recall meningkat signifikan menjadi (0.79) dengan F1-score (0.63), meskipun precision sedikit menurun (0.53), sehingga model menjadi cukup sensitif dalam mendeteksi churn. Secara keseluruhan, LightGBM dengan SMOTEENN memberikan hasil yang seimbang untuk kasus churn tergantung pada tujuan bisnis.
+
+# 🎯 Potensi Dampak Bisnis
+1. Model XG-Boost
+   - **Berdasarkan perspektif bisnis** : Model ini cukup baik dalam mendeteksi pelanggan yang tidak churn yaitu (704). Sedangkan deteksi pelanggan yang churn yang berhasil diprediksi dengan benar yaitu sebanyak (299). Namun, model masih menghasilkan cukup banyak prediksi pelanggan yang churn namun aslinya tidak churn yaitu (337), artinya model ini lebih sensitif terhadap churn, sehingga cocok untuk strategi bisnis yang memprioritaskan deteksi dini pelanggan yang beresiko churn meskipun ada konsekuensi salah sasaran. Disisi lain, sebanyak 65 pelanggan churn yang tidak dideteksi oleh model sehingga model melabelinya sebagai tidak churn
+   -**Berdasarkan kurva ROC-AUC** : Berdasarkan grafik ROC Curve hasil tuned model XGBoost, terlihat bahwa kurva hijau berada jauh di atas garis merah diagonal (baseline random guess), menandakan bahwa model memiliki kemampuan klasifikasi yang jauh lebih baik dibanding tebakan acak. Nilai AUC sebesar 0.8237 menunjukkan performa model yang cukup baik dalam membedakan antara pelanggan churn dan tidak churn. Semakin mendekati nilai 1, semakin baik kemampuan model. Dengan AUC di atas 0.8, model ini dapat dikatakan cukup andal untuk digunakan dalam deteksi churn, meskipun harus dilakukan optimaliasi kembali agar performa model menjadi lebih baik lagi.
+
+2. Model LightGBM
+   - **Berdasarkan perspektif bisnis** : Model ini cukup baik dalam mendeteksi pelanggan yang tidak churn yaitu (768). Sedangkan deteksi pelanggan yang churn yang berhasil diprediksi dengan benar yaitu sebanyak (271). Namun, model masih cukup dalam prediksi pelanggan yang churn namun aslinya tidak churn yaitu (273), artinya model ini tidak terlalu sensitif terhadap churn, tidak seperti model XG-Boost. Disisi lain, sebanyak (93) pelanggan churn yang tidak dideteksi oleh model sehingga model melabelinya sebagai tidak churn.
+   - **Berdasarkan kurva ROC-AUC** : Berdasarkan grafik ROC Curve hasil tuned model LightGBM, kurva hijau berada cukup jauh di atas garis merah diagonal (baseline random guess), menandakan bahwa model memiliki kemampuan klasifikasi yang lebih baik dibanding tebakan acak. Nilai AUC sebesar 0.8210 menunjukkan performa model yang cukup baik dalam membedakan antara pelanggan churn dan tidak churn. Dengan nilai AUC di atas 0.8, LightGBM bisa dikategorikan sebagai model yang andal, meskipun performanya relatif mirip dengan XGBoost. Artinya, model ini cukup efektif digunakan dalam deteksi churn, meski masih harus dilakukan optimalisasi lagi agar mendapatkan performa model yang lebih baik.
+  
+**Dapat disimpulkan bahwa** : 
+
+- XG-Boost lebih sensitif dalam mendeteksi pelanggan yang berisiko churn → cocok untuk strategi preventif (deteksi dini).
+- LightGBM lebih konservatif, menghasilkan lebih sedikit false positive → cocok untuk strategi retensi yang lebih selektif.
