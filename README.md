@@ -71,6 +71,7 @@ Kesimpulan :
 Model XG-Boost dan LightGBM menunjukkan performa cukup stabil, dapat dilakukan analisis lebih lanjut
 
 3. Pada eksperimen ini, dilakukan analisis lanjutan pada model XG-Boost dan LightGBM dalam prediksi churn. Hal ini untuk perbandingan model yang terbaik dalam memprediksi churn berdasarkan strategi bisnis yang dituju. Berikut hasilnya:
+   
 | Model | Tahap | Dataset | Precision | Recall | F1-Score | ROC AUC |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: |
 | **XG-Boost** | Based Model | Train | 0.887377 | 0.781625 | 0.831150 | 0.974628 |
