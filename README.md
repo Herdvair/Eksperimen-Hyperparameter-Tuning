@@ -45,6 +45,7 @@ Proyek ini bertujuan untuk membangun model Machine Learning yang optimal untuk m
 # 🤖 Pemodelan & Hasil
 
 1. Pada eksperimen ini, dilakukan **uji performa model regresi linear** dalam prediksi MonthlyCharges (Biaya Bulanan). Dilakukan percobaan menggunakan based model, ridge, dan lasso untuk melihat hasil pemodelan regresi ini, berikut hasilnya:
+   
 | Metrik Evaluasi | Base Model (Train) | Ridge (Train) | Lasso (Train) | Base Model (Test) | Ridge (Test) | Lasso (Test) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | **R²** | 0.27053129951604094 | 0.2704773247654042 | 0.27052313438345177 | 0.24407825420749474 | 0.24439249997095924 | 0.24419914192242553 |
@@ -57,6 +58,7 @@ Kesimpulan :
 Saya melakukan eksperimen untuk memprediksi Monthly Charges karena target Churn bersifat kategorikal, bukan kontinu. Namun, hasil dari base model, Ridge, maupun Lasso menunjukkan bahwa performa regresi terhadap data tersebut masih rendah (R² hanya sekitar 24–27%), jauh dari harapan. Hal ini mengindikasikan bahwa dataset kurang cocok digunakan untuk pemodelan regresi linear sederhana, baik dengan regularisasi maupun tanpa regularisasi. Kemungkinan penyebabnya adalah keterbatasan fitur dalam menjelaskan variasi Monthly Charges, sehingga model tidak mampu mencapai performa yang optimal meskipun dilakukan hyperparameter tuning.
 
 2. Pada eksperimen ini, dilakukan **uji performa based model dari Logistic Regression, Decision Tree, Random Forest, XG-Boost, LightGBM, KNN** dalam prediksi Churn. Hal ini untuk identifikasi performa based model yang terbaik untuk dilakukan analisis lebih lanjut, berikut hasilnya:
+   
 | Metrik Evaluasi | Logistic Regression (Train) | Decision Tree (Train) | Random Forest (Train) | XG-Boost (Train) | LightGBM (Train) | KNN (Train) | Logistic Regression (Test) | Decision Tree (Test) | Random Forest (Test) | XG-Boost (Test) | LightGBM (Test) | KNN (Test) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Precision | 0.648760 | 1.000000 | 0.997330 | 0.887377 | 0.807630 | 0.723590 | 0.583916 | 0.460759 | 0.560976 | 0.586538 | 0.598684 | 0.526144 |
